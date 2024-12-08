@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/app/css/styles.css" />
+  </head>
+  <body>
+    <body>
+      <div class="login-container">
+        <h2>Login</h2>
+        <!-- {% if error %} -->
+        <!-- <div class="error">{{ error }}</div> -->
+        <!-- {% endif %} -->
+        <form method="POST" onsubmit="return validateForm()">
+          <!-- {% csrf_token %} -->
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+      <script>
+        function validateForm() {
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+          if (!username || !password) {
+            alert("Please fill in both fields.");
+            return false;
+          }
+          return true;
+        }
+      </script>
+    </body>
+  </body>
+</html>
