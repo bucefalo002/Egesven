@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Producto
 from .forms import ProductoForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -52,6 +53,7 @@ def editar(request,id):
         formulario = ProductoForm(data=request.POST, instance=producto,files=request.FILES)
         if formulario.is_valid():
             formulario.save()
+            messages.success(request,'Modificado correctamente')
             return redirect(to='listar')
         data['form'] = formulario
         
@@ -60,4 +62,5 @@ def editar(request,id):
 def eliminar(request,id):
     producto = get_object_or_404(Producto,id=id)
     producto.delete()
+    messages.success(request,'Eliminado correctamente')
     return redirect(to="listar")
