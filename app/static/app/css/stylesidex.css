@@ -45,6 +45,7 @@ header > div {
     margin-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
+    cursor: pointer;
 }
 .contenedor_logo {
     display: flex;
