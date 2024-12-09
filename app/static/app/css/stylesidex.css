@@ -102,11 +102,7 @@ nav > ul > li > a {
     
 }
 
-.productos .producto .contenedor_producto {
-    background-color: white;
-    width: 80%;
-    margin:auto;
-}
+
 
 .productos .producto .contenedor .detalles {
     padding: 5px;
