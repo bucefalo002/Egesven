@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Producto
+from .forms import ProductoForm
 
 # Create your views here.
 
@@ -20,4 +21,16 @@ def carrito(request):
 def pago(request):
     return render(request, 'app/pago.html')
 
+def agregar(request):
+    data = {
+        'form':ProductoForm()
+    }
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = 'Guardado correctamente'
+        else:
+            data['form'] = formulario
+    return render(request,'app/productos/agregar.html',data)
 
