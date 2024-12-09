@@ -13,8 +13,8 @@
   </head>
   <body>
     <div class="wrapper">
-      <!-- <form method="post" onsubmit="return validateForm()"> -->
-      <form method="dialog">
+      <form method="post">
+        {% csrf_token %}
         <h1>Ingresar</h1>
         <div class="input-box">
           <input type="text" id="username" placeholder="Usuario" />
@@ -28,25 +28,11 @@
           <label><input type="checkbox" />Recúerdame</label>
           <label><a href="#">Olvidaste la contraseña</a></label>
         </div>
-        <button type="submit" class="btn" onclick="goToHome()">Ingresar</button>
+        <button type="submit" class="btn">Ingresar</button>
         <div class="register-link">
           <p><a href="#">Registrarse</a></p>
         </div>
       </form>
     </div>
-    <script>
-      // function validateForm() {
-      //   const username = document.getElementById("username").value.trim();
-      //   const password = document.getElementById("password").value.trim();
-      //   if (!username || !password) {
-      //     alert("Por favor ingresa los campos requeridos ");
-      //     return false;
-      //   }
-      //   return true;
-      // }
-      function goToHome() {
-        window.location.href = "{% url 'home' %}";
-      }
-    </script>
   </body>
 </html>
