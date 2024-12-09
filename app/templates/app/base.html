@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EGESVEN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/css/stylesidex.css' %}" />
+    <link rel="shortcut icon" href="{% static 'app/img/shop_106574.ico' %}">
+  </head>
+  <body>
+    <header id="header">
+      <img src="" alt="menu" class="menu" id="menu" />
+      <div class="contenedor_logo">
+        <img src="{% static 'app/img/logo.png' %}" alt="logo" class="logo" />
+      </div>
+      <div>
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="{% url 'home' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'carrito' %}">Carrito</a>
+              </li>
+            <li>
+              <a href="{% url 'pago' %}">Pago</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="contenido">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+    <footer>
+      <footer>          
+          <div class="logo_footer">
+              <img src="{% static 'app/img/logo.png' %}" alt="logo">
+          </div>
+      </footer>
+  </body>
+</html>

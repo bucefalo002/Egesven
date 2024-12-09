@@ -1,11 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Home</h1>
-  </body>
-</html>
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="productos">
+  <div class="producto">
+    <div class="contenedor">
+      <img src="{% static 'app/img/manzana.jpg' %}" alt="imagen" />
+      <div class="detalles">
+        <h5>Producto 1</h5>
+        <h3>PRECIO</h2>
+          <button class="btn">Añadir al Carro</button>
+      </div>
+    </div>
+  </div>
+  <div class="producto">
+    <div class="contenedor">
+      <img src="{% static 'app/img/platano.jpg' %}" alt="imagen" />
+      <div class="detalles">
+        <h5>Producto 2</h5>
+        <h3>PRECIO</h2>
+          <button class="btn">Añadir al Carro</button>
+      </div>
+    </div>
+  </div>
+  <div class="producto">
+    <div class="contenedor">
+      <img src="{% static 'app/img/frutilla.jpg' %}" alt="imagen" />
+      <div class="detalles">
+        <h5>Producto 3</h5>
+        <h3>PRECIO</h2>
+          <button class="btn">Añadir al Carro</button>
+      </div>
+    </div>
+  </div>
+  <div class="producto">
+    <div class="contenedor">
+      <img src="{% static 'app/img/naranja.jpg' %}" alt="imagen" />
+      <div class="detalles">
+        <h5>Producto 4</h5>
+        <h3>PRECIO</h2>
+          <button class="btn">Añadir al Carro</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
