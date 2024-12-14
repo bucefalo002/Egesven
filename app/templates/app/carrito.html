@@ -1,11 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Carrito</h1>
-  </body>
-</html>
+{% extends 'app/base.html' %} 
+
+
+
+
+{% load static %} 
+
+
+
+{% block contenido %} 
+
+<div class="carrito-container">
+  <h1>Carrito de Compra</h1>
+  <table class="tabla-carrito">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí iteramos los productos en el carrito -->
+      {% for item in carrito %}
+      <tr>
+        <td>{{ item.nombre }}</td>
+        <td>
+          <input
+            type="number"
+            min="1"
+            value="{{ item.cantidad }}"
+            class="input-cantidad"
+          />
+        </td>
+        <td>${{ item.precio_unitario }}</td>
+        <td>${{ item.subtotal }}</td>
+        <td>
+          <button class="btn-eliminar">Eliminar</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="total-container">
+    <h2>Total: ${{ total }}</h2>
+    <button class="btn-finalizar">Finalizar Compra</button>
+  </div>
+</div>
+</body>
+
+
+
+  {% endblock %}
+
+
