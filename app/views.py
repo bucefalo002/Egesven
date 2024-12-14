@@ -52,7 +52,19 @@ def carrito(request):
     return render(request, 'app/carrito.html',data)
 
 def pago(request):
-    return render(request, 'app/pago.html')
+    usuario_nombre = request.session.get('usuario_nombre')
+    usuario_rol = request.session.get('usuario_rol')
+    productos=Producto.objects.all()
+    for producto in productos:
+        producto.total = producto.precio * producto.stock
+    total = sum(producto.total for producto in productos)
+    data={
+        'productos':productos,
+        'usuario_nombre': usuario_nombre,
+        'usuario_rol': usuario_rol,
+        'total':total,
+    }
+    return render(request, 'app/pago.html',data)
 
 def agregar(request):
     usuario_nombre = request.session.get('usuario_nombre')
