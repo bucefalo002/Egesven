@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Producto, Usuario
-from .forms import ProductoForm,LoginForm
+from .forms import ProductoForm,LoginForm, UsuarioForm
 from django.contrib import messages
 
 # Create your views here.
@@ -116,3 +116,14 @@ def eliminar(request,id):
     producto.delete()
     messages.success(request,'Eliminado correctamente')
     return redirect(to="listar")
+
+def registrar(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirige a la página principal o a la que prefieras
+    else:
+        form = UsuarioForm()
+
+    return render(request, 'app/registrar.html', {'form': form})
