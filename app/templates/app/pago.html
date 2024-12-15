@@ -9,11 +9,11 @@
 <div class="container py-5">
   {% load humanize %}
   <h1 class="text-center mb-4">Opciones de Pago</h1>
-  {% for p in productos %}
+
   <p class="text-center fs-4 text-muted">
-    Total a pagar: ${{ p.total | intcomma }}
+    Total a pagar: ${{ total | intcomma }}
   </p>
-  {% endfor %}
+
   <form action="/procesar_pago" method="post">
     {% csrf_token %}
 
